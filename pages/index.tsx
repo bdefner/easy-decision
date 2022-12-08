@@ -1,4 +1,8 @@
+import { css } from '@emotion/react';
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import { colors } from '../styles/styleConstants';
 
 export default function Home() {
   return (
@@ -10,7 +14,36 @@ export default function Home() {
       </Head>
 
       <main>
-        <p>Here we go!</p>
+        <section className="heroSection">
+          <div className="container">
+            <div className="columnWrap">
+              <div>
+                <Image
+                  src={'/../public/assets/graphics/hero.png'}
+                  width="352"
+                  height="265"
+                />
+              </div>
+              <div className="column">
+                <h1 id="heroH1">
+                  Easy <span>Decision</span>
+                </h1>
+                <p>
+                  A structured technique for organizing and analyzing complex
+                  decisions, based on mathematics and psychology. Easy Decision
+                  is based on the Analytic Hierarchy Process (AHP) which is
+                  widely used in economy, but made so easy, you can use it for
+                  your daily life or business.
+                </p>
+                <div>
+                  <Link href="/" className="mainButton button1">
+                    get started for free!
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -1,11 +1,28 @@
 import '../styles/globals.css';
 import { css, Global } from '@emotion/react';
 import type { AppProps } from 'next/app';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState();
+
+  const refreshUserProfile = useCallback(async () => {
+    const profileResponse = await fetch('/api/profile');
+    const profileResponseBody = await profileResponse.json();
+
+    if ('errors' in profileResponseBody) {
+      setUser(undefined);
+    } else {
+      setUser(profileResponseBody.user);
+      console.log('user: ', user);
+    }
+  }, []);
+
+  useEffect(() => {
+    refreshUserProfile().catch(() => console.log('fetch api failed'));
+  }, [refreshUserProfile]);
+
   return (
     <>
       <Global
@@ -15,10 +32,13 @@ export default function App({ Component, pageProps }: AppProps) {
           *::after {
             box-sizing: border-box;
           }
-
+          @font-face {
+            font-family: Mosk;
+            src: url('../public/assets/fonts/Mosk\ Normal\ 400.ttf');
+          }
           body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-              Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+            font-family: Mosk, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+              Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
               sans-serif;
             margin: 0;
           }
@@ -29,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
           The "Component" component refers to
           the current page that is being rendered
         */}
-        <Component {...pageProps} />
+        <Component {...pageProps} refreshUserProfile={refreshUserProfile} />
       </Layout>
     </>
   );

@@ -1,11 +1,39 @@
+:root {
+  --blue1: #35a7ff;
+  --sand1: #d9bb6d;
+  --tiny: 4px;
+  --small1: 8px;
+  --small2: 16px;
+  --medium1: 32px;
+  --medium2: 64px;
+  --large: 128px;
+  --radius: 12px;
+}
+
+@font-face {
+  font-family: Mosk;
+  src: url('../public/assets/fonts/Mosk\ Normal\ 400.ttf');
+}
+
 html,
 body {
-  padding: 0;
+  padding: 100;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Mosk, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+p {
+  font-size: 18px;
+  line-height: 1.5rem;
+}
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -15,6 +43,45 @@ a {
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1000px;
+}
+
+.columnWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  padding-left: var(--medium1);
+}
+
+.column > p {
+  margin-bottom: var(--medium1);
+  max-width: 500px;
+}
+
+.mainButton {
+  color: white;
+  margin-right: var(--small2);
+  padding: 6px 20px 6px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.mainButton:hover {
+  padding-left: var(--medium1);
+  padding-right: var(--medium1);
+}
+
+.button1 {
+  background-color: var(--blue1);
+}
+
+.button2 {
+  background-color: var(--sand1);
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -23,4 +90,88 @@ a {
     color: white;
     background: black;
   }
+}
+
+a {
+  color: var(--blue1);
+  cursor: pointer;
+}
+
+.smallText {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.giveSpace {
+  margin: var(--medium1);
+}
+/* Header */
+
+.headerWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--small1) var(--medium1) var(--small1) var(--medium1);
+}
+
+#logoWrap {
+  display: flex;
+  align-items: center;
+}
+
+#logoWrap > p {
+  margin-left: var(--small1);
+  font-size: 24px;
+  color: var(--blue1);
+}
+
+#logoWrap > p > span {
+  color: var(--sand1);
+}
+
+.headerWrap nav {
+  display: flex;
+}
+
+.headerWrap nav:last-child {
+  margin-right: 0px;
+}
+/* Home  */
+
+.heroSection {
+  margin: var(--large);
+}
+
+#heroH1 {
+  color: var(--blue1);
+  font-size: 50px;
+}
+#heroH1 > span {
+  color: var(--sand1);
+}
+
+/* Login and Sign-up  */
+
+#AuthPageWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+}
+
+.AuthFormWrap {
+  padding: var(--medium1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.AuthFromWrap label {
+  min-width: 200px;
+}
+
+#FormH1 {
+  color: var(--blue1);
 }
