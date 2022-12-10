@@ -1,4 +1,8 @@
+import { css } from '@emotion/react';
+import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import { getUserBySessionToken, User } from '../database/users';
 
 type Props = {
@@ -6,6 +10,7 @@ type Props = {
 };
 
 export default function Profile(props: Props) {
+  props.isQueryActive && props.setIsQueryActive(false);
   if (!props.user) {
     return (
       <>
@@ -25,7 +30,48 @@ export default function Profile(props: Props) {
         <title>Personal Information</title>
         <meta name="description" content="Biography of the person" />
       </Head>
-      <div></div>
+      <section className="mainSection">
+        <div className="centerFlexContainer profileMenuWrap">
+          {props.screen > 1 && (
+            <Link href="/query" className="profileNavButton button2">
+              <Image
+                src="/../public/assets/icons/arrow.png"
+                alt=""
+                width="32"
+                height="32"
+              />
+              <p>continue</p>
+            </Link>
+          )}
+          <Link href="/query" className="profileNavButton button1">
+            <Image
+              src="/../public/assets/icons/plus.png"
+              alt=""
+              width="32"
+              height="32"
+            />
+            <p>start new</p>
+          </Link>
+          <Link href="/" className="profileNavButton button2">
+            <Image
+              src="/../public/assets/icons/settings.png"
+              alt=""
+              width="32"
+              height="32"
+            />
+            <p>settings</p>
+          </Link>
+        </div>
+      </section>
+      <section className="mainSection">
+        <div className="mainContainer">
+          <div className="flexRowWrap">
+            <hr />
+            <p>see your past queries</p>
+            <hr />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

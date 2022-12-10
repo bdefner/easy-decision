@@ -1,11 +1,15 @@
 import '../styles/globals.css';
 import { css, Global } from '@emotion/react';
 import type { AppProps } from 'next/app';
-import { useCallback, useEffect, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import Layout from '../components/Layout';
+import QueryContextProvider from '../components/QueryContextProvider';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState();
+  const [activeScreen, setActiveScreen] = useState(1);
+  const [isQueryActive, setIsQueryActive] = useState(false);
+  const numberOfScreens = 30;
 
   const refreshUserProfile = useCallback(async () => {
     const profileResponse = await fetch('/api/profile');
@@ -44,13 +48,30 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       />
-      <Layout user={user}>
-        {/*
+      <QueryContextProvider>
+        <Layout
+          user={user}
+          isQueryActive={isQueryActive}
+          setIsQueryActive={setIsQueryActive}
+          screen={activeScreen}
+          setScreen={setActiveScreen}
+          numberOfScreens={numberOfScreens}
+        >
+          {/*
           The "Component" component refers to
           the current page that is being rendered
         */}
-        <Component {...pageProps} refreshUserProfile={refreshUserProfile} />
-      </Layout>
+          <Component
+            {...pageProps}
+            refreshUserProfile={refreshUserProfile}
+            screen={activeScreen}
+            setScreen={setActiveScreen}
+            numberOfScreens={numberOfScreens}
+            isQueryActive={isQueryActive}
+            setIsQueryActive={setIsQueryActive}
+          />
+        </Layout>
+      </QueryContextProvider>
     </>
   );
 }

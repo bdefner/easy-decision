@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { colors } from '../styles/styleConstants';
 
-export default function Home() {
+export default function Home(props: Props) {
+  props.setIsQueryActive(false);
   return (
     <div>
       <Head>
@@ -22,6 +23,7 @@ export default function Home() {
                   src={'/../public/assets/graphics/hero.png'}
                   width="352"
                   height="265"
+                  alt=""
                 />
               </div>
               <div className="column">
@@ -36,7 +38,7 @@ export default function Home() {
                   your daily life or business.
                 </p>
                 <div>
-                  <Link href="/" className="mainButton button1">
+                  <Link href="/query" className="mainButton button1">
                     get started for free!
                   </Link>
                 </div>

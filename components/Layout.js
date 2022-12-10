@@ -14,7 +14,12 @@ export default function Layout(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header user={props.user} />
+      <Header
+        user={props.user}
+        isQueryActive={props.isQueryActive}
+        screen={props.screen}
+        numberOfScreens={props.numberOfScreens}
+      />
 
       <main css={mainStyles}>{props.children}</main>
 

@@ -1,6 +1,8 @@
 :root {
   --blue1: #35a7ff;
   --sand1: #d9bb6d;
+  --lightGrey: #f3f3f3;
+  --greyBackdrop: #d9d9d9;
   --tiny: 4px;
   --small1: 8px;
   --small2: 16px;
@@ -8,6 +10,9 @@
   --medium2: 64px;
   --large: 128px;
   --radius: 12px;
+  --text-smaller: 10px;
+  --text-small: 12px;
+  --text: 15px;
 }
 
 @font-face {
@@ -33,6 +38,7 @@ h1 {
 
 h2 {
   font-size: 24px;
+  color: var(--blue1);
 }
 a {
   color: inherit;
@@ -75,6 +81,16 @@ a {
   padding-right: var(--medium1);
 }
 
+.smallButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: white;
+  padding: 5 12 5 12;
+  font-size: var(--text-smaller);
+}
+
 .button1 {
   background-color: var(--blue1);
 }
@@ -105,6 +121,37 @@ a {
 .giveSpace {
   margin: var(--medium1);
 }
+
+.flexRowWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRowWrap hr {
+  width: 150px;
+  margin: 0 12px 0 12px;
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainSection {
+  margin: var(--large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centerFlexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Header */
 
 .headerWrap {
@@ -114,6 +161,14 @@ a {
   margin: var(--small1) var(--medium1) var(--small1) var(--medium1);
 }
 
+#headerNavigationWrap {
+  display: flex;
+  align-items: center;
+}
+
+#headerNavigationWrap div {
+  margin-right: var(--small2);
+}
 #logoWrap {
   display: flex;
   align-items: center;
@@ -136,6 +191,28 @@ a {
 .headerWrap nav:last-child {
   margin-right: 0px;
 }
+
+#statusBarWrap {
+  min-width: 200px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 var(--medium1) 0 var(--medium1);
+  height: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: var(--greyBackdrop);
+  position: relative;
+}
+
+#statusBar {
+  position: absolute;
+  z-index: 10;
+  min-width: 10px;
+  height: 100%;
+  background-color: var(--blue1);
+  border-radius: 12px;
+}
+
 /* Home  */
 
 .heroSection {
@@ -174,4 +251,149 @@ a {
 
 #FormH1 {
   color: var(--blue1);
+}
+
+/* Profile  */
+
+.profileNavButton {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--medium1);
+  padding: var(--small2);
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.profileNavButton:hover {
+  width: 105px;
+  height: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--medium1);
+  padding: var(--small2);
+  border-radius: 12px;
+}
+
+.profileNavButton p {
+  color: white;
+  margin-bottom: 0;
+  font-size: var(--text);
+  line-height: 0;
+}
+
+.profileMenuWrap {
+  height: 100px;
+}
+/* Query  */
+
+#queryScreenWrap {
+  min-height: 100vh;
+}
+
+.bigInputWrap {
+  margin-top: var(--medium2);
+}
+
+#helpButtonWrap {
+  display: flex;
+  justify-content: end;
+}
+
+.bigTextInput {
+  width: 350px;
+  min-height: 60px;
+  border: 0;
+  border-radius: 12px;
+  background-color: var(--lightGrey);
+  color: black;
+  padding: var(--small1);
+  resize: none;
+}
+
+.smallTextInput {
+  width: 200px;
+  background-color: var(--lightGrey);
+  border-radius: 12px;
+  border: 0;
+  padding: var(--small1);
+  margin: var(--small1) 0 var(--small2) 0;
+  color: black;
+  text-align: center;
+}
+
+.queryNavWrap {
+  display: flex;
+  align-items: center;
+  margin: var(--medium2) 0 var(--medium2) 0;
+}
+
+.queryNavWrap div {
+  margin: var(--small2);
+}
+
+.bottomInfoWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: var(--medium1);
+  margin-bottom: var(--medium1);
+}
+
+.bottomInfoWrap p {
+  font-size: var(--text);
+  margin: 0;
+}
+
+.sliderComparisonWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--small2) 0 var(--small2) 0;
+}
+
+.sliderComparisonWrap p {
+  margin: 0 var(--small2) 0 var(--small2);
+}
+
+.slider {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 250px;
+  background: var(--greyBackdrop);
+  color: var(--blue1);
+  outline: none;
+  opacity: 0.8;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 18px;
+  height: 12px;
+  background: var(--blue1);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 12px;
+  background: var(--blue1);
+  border-radius: 12px;
+  cursor: pointer; /* Cursor on hover */
 }

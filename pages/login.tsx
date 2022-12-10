@@ -14,6 +14,7 @@ export default function Login(props: Props) {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
   const router = useRouter();
+  props.setIsQueryActive(false);
 
   async function loginHandler() {
     const loginResponse = await fetch('/api/login', {

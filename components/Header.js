@@ -1,7 +1,10 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { colors } from '../styles/styleConstants';
+import Autosave from './Autosave';
+import Statusbar from './Statusbar';
 
 const headerStyles = css`
   display: flex;
@@ -16,6 +19,7 @@ function Anchor({ children, ...restProps }) {
 }
 
 export default function Header(props) {
+  console.log('isQueryActive:', props);
   return (
     <div className="headerWrap">
       <Link href="/" id="logoWrap">
@@ -28,28 +32,45 @@ export default function Header(props) {
           Easy <span>Decision</span>
         </p>
       </Link>
-      <div></div>
-      <nav>
-        <Link href="/" className="mainButton button1">
-          quick start
-        </Link>
-        <Link href="/" className="mainButton button1">
-          about{' '}
-        </Link>
+
+      {props.isQueryActive && (
+        <>
+          <Statusbar
+            screen={props.screen}
+            numberOfScreens={props.numberOfScreens}
+          />
+          <Autosave />
+        </>
+      )}
+
+      <nav id="headerNavigationWrap">
         {props.user && <div>Hi, {props.user.username}</div>}
         {props.user ? (
           <>
+            <Link href="/profile" className="mainButton button1">
+              profile
+            </Link>
             <Anchor href="/logout" className="mainButton button2">
               logout
             </Anchor>
-            <Link href="/profile" className="mainButton button2">
-              profile
-            </Link>
           </>
         ) : (
-          <Link href="/login" className="mainButton button2">
-            login | signup
-          </Link>
+          <>
+            {props.isQueryActive ? (
+              <></>
+            ) : (
+              <Link href="/query" className="mainButton button1">
+                quick start
+              </Link>
+            )}
+
+            <Link href="/" className="mainButton button1">
+              about
+            </Link>
+            <Link href="/login" className="mainButton button2">
+              login | signup
+            </Link>
+          </>
         )}
       </nav>
     </div>
