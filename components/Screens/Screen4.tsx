@@ -10,9 +10,15 @@ export default function Screen4(props: Props) {
   const setQualitiesHelper = props.qualities;
 
   function addInputField() {
-    if (inputArray.length < 7) {
-      setInputArray([...inputArray, '']);
+    if (props.qualities.length < 7) {
+      props.setQualities([...props.qualities, '']);
     }
+  }
+
+  function handleInputChange(index: number, event: any) {
+    const newInput = [...props.qualities];
+    newInput[index] = event.target.value;
+    props.setQualities(newInput);
   }
 
   return (
@@ -30,21 +36,20 @@ export default function Screen4(props: Props) {
             </div>
           </div>
 
-          {inputArray.map((element, index) => {
+          {props.qualities.map((element, index) => {
             return (
-              <>
+              <div key={index}>
                 <input
                   className="smallTextInput"
                   value={setQualitiesHelper[index]}
                   onChange={(event) => {
-                    setQualitiesHelper[index] = event.target.value;
-                    props.setQualities(setQualitiesHelper);
+                    handleInputChange(index, event);
                   }}
                 />
-              </>
+              </div>
             );
           })}
-          {inputArray.length < 7 && (
+          {props.qualities.length < 7 && (
             <Image
               src="/../public/assets/icons/more.png"
               width="32"

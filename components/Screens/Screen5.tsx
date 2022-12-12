@@ -23,8 +23,8 @@ export default function Screen5(props: Props) {
           <Image
             src="/../public/assets/graphics/example1.jpg"
             alt="Example of comparisons"
-            width="407"
-            height="260"
+            width="755"
+            height="483"
             style={{ margin: spacing.medium2 }}
           />
 

@@ -5,12 +5,16 @@ import InfoButton from '../InfoButton';
 import QueryNavigation from '../QueryNavigation';
 
 export default function Screen3(props: Props) {
-  const [inputArray, setInputArray] = useState(['', '', '']);
-
   function addInputField() {
-    if (inputArray.length < 5) {
-      setInputArray([...inputArray, '']);
+    if (props.alternativesInputFields.length < 5) {
+      props.setAlternativesInputFields([...props.alternativesInputFields, '']);
     }
+  }
+
+  function handleInputChange(index: number, event: any) {
+    const newInput = [...props.alternatives];
+    newInput[index] = event.target.value;
+    props.setAlternatives(newInput);
   }
 
   return (
@@ -25,10 +29,20 @@ export default function Screen3(props: Props) {
             </div>
           </div>
 
-          {inputArray.map((element) => {
-            return <input className="smallTextInput" />;
+          {props.alternativesInputFields.map((element: any, index: number) => {
+            return (
+              <div key={index}>
+                <input
+                  className="smallTextInput"
+                  value={props.alternatives[index]}
+                  onChange={(event) => {
+                    handleInputChange(index, event);
+                  }}
+                />
+              </div>
+            );
           })}
-          {inputArray.length < 5 && (
+          {props.alternativesInputFields.length < 5 && (
             <Image
               src="/../public/assets/icons/more.png"
               width="32"

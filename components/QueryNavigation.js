@@ -1,4 +1,15 @@
+import { useEffect } from 'react';
+
+function handleClickOnNext(dataForFetch, screen, setScreen) {
+  console.log('dataForFetch: ', dataForFetch);
+  setScreen(screen + 1);
+}
+
 export default function QueryNavigation(props) {
+  const dataForFetch = {
+    question: props.question,
+  };
+
   return (
     <>
       <div className="queryNavWrap">
@@ -15,7 +26,7 @@ export default function QueryNavigation(props) {
         <div
           className="mainButton button1"
           onClick={() => {
-            props.setScreen(props.screen + 1);
+            handleClickOnNext(dataForFetch, props.screen, props.setScreen);
           }}
         >
           {'next >'}

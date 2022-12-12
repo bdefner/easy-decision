@@ -49,6 +49,10 @@ a {
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
   max-width: 1000px;
 }
@@ -303,7 +307,7 @@ a {
 
 #helpButtonWrap {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .bigTextInput {
@@ -358,8 +362,13 @@ a {
   margin: var(--small2) 0 var(--small2) 0;
 }
 
+.sliderComparisonWrap input {
+  width: 300px;
+}
+
 .sliderComparisonWrap p {
   margin: 0 var(--small2) 0 var(--small2);
+  width: 200px;
 }
 
 .slider {

@@ -5,8 +5,6 @@ import InfoButton from '../InfoButton';
 import QueryNavigation from '../QueryNavigation';
 
 export default function Screen2(props: Props) {
-  const [question, setQuestion] = useState('');
-
   return (
     <>
       <section className="mainSection">
@@ -19,9 +17,10 @@ export default function Screen2(props: Props) {
             </div>
 
             <textarea
+              value={props.question}
               className="bigTextInput"
               onChange={(event) => {
-                setQuestion(event.currentTarget.value);
+                props.setQuestion(event.currentTarget.value);
               }}
             ></textarea>
           </div>

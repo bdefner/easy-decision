@@ -34,13 +34,13 @@ export default function Header(props) {
       </Link>
 
       {props.isQueryActive && (
-        <>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <Statusbar
             screen={props.screen}
             numberOfScreens={props.numberOfScreens}
           />
-          <Autosave />
-        </>
+          {props.user && <div className="mainButton button2">save</div>}
+        </div>
       )}
 
       <nav id="headerNavigationWrap">
