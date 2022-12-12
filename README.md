@@ -1,4 +1,4 @@
-#### Easy Decide project
+## Easy Decide project
 
 A structured technique for organizing and analyzing complex decisions, based on mathematics and psychology. Easy Decision is based on the Analytic Hierarchy Process (AHP) which is widely used in economy, but made so easy, you can use it for your daily life or business.
 
