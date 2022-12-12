@@ -12,6 +12,8 @@ The app is in pre-alpha development. An alpha release is planned for the end of 
 
 ![](public/assets/screenshots/landingpage-snip.jpg)
 
+![](public/assets/screenshots/intro-snip.jpg)
+
 ![](public/assets/screenshots/user-input-snip.jpg)
 
 ![](public/assets/screenshots/user-input-2-snip.jpg)

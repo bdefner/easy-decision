@@ -1,6 +1,7 @@
 export const colors = {
   blue1: '#35A7FF',
   sand1: '#D9BB6D',
+  lightGrey: '#fefefe',
 };
 
 export const spacing = {
@@ -10,4 +11,5 @@ export const spacing = {
   medium1: 32,
   medium2: 64,
   large: 128,
+  border: 12,
 };

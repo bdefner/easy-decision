@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 function handleClickOnNext(dataForFetch, screen, setScreen) {
-  console.log('dataForFetch: ', dataForFetch);
   setScreen(screen + 1);
 }
 

@@ -20,6 +20,15 @@ export default function Screen5(props: Props) {
             the question by pulling a slider:
           </p>
 
+          <div
+            className="mainButton button2"
+            onClick={() => {
+              props.setScreen(props.screen + 2);
+            }}
+          >
+            skip the explanations
+          </div>
+
           <Image
             src="/../public/assets/graphics/example1.jpg"
             alt="Example of comparisons"
