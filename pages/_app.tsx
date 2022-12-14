@@ -10,6 +10,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [activeScreen, setActiveScreen] = useState(1);
   const [isQueryActive, setIsQueryActive] = useState(false);
   const numberOfScreens = 30;
+  const [numberOfAlternatives, setNumberOfAlternatives] = useState(2);
+  const [numberOfQualities, setNumberOfQualities] = useState(3);
 
   const refreshUserProfile = useCallback(async () => {
     const profileResponse = await fetch('/api/profile');

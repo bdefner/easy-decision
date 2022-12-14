@@ -1,4 +1,7 @@
+import { EigenvalueDecomposition, Matrix } from 'ml-matrix';
+import { useState } from 'react';
 import { colors, spacing } from '../../styles/styleConstants';
+import CalculateResults from '../../utils/calculateResults';
 import CompareSlider from '../CompareSlider';
 import QueryNavigation from '../QueryNavigation';
 
@@ -8,6 +11,21 @@ import QueryNavigation from '../QueryNavigation';
 // docs: https://docs.eazychart.com/?path=/story/6--default
 
 export default function ScreenResults(props: Props) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const weightingQualities = props.weightingQualities.map((item: string) => {
+    return parseInt(item);
+  });
+  const weightingComparison1 = props.weightingComparison1.map(
+    (item: string) => {
+      parseInt(item);
+    },
+  );
+
+  const result = CalculateResults(weightingQualities, props.qualities.length);
+
+  console.log('result: ', result);
+
   return (
     <>
       <section className="mainSection">

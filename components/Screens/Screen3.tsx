@@ -42,7 +42,7 @@ export default function Screen3(props: Props) {
               </div>
             );
           })}
-          {props.alternativesInputFields.length < 5 && (
+          {props.alternatives.length < 5 && (
             <Image
               src="/../public/assets/icons/more.png"
               width="32"

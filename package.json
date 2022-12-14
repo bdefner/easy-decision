@@ -26,6 +26,8 @@
     "eslint-config-next": "13.0.6",
     "js-cookie": "^3.0.1",
     "ley": "^0.8.1",
+    "mathjs": "^11.5.0",
+    "ml-matrix": "^6.10.4",
     "next": "13.0.6",
     "postgres": "^3.3.2",
     "react": "18.2.0",

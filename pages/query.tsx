@@ -196,6 +196,17 @@ export default function Query(props: Props) {
             setScreen={props.setScreen}
             qualities={qualities}
             alternatives={alternatives}
+            // weightingQualities={weightingQualities}
+            weightingQualities={[
+              4, -2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            ]}
+            weightingComparison1={weightingComparison1}
+            weightingComparison2={weightingComparison2}
+            weightingComparison3={weightingComparison3}
+            weightingComparison4={weightingComparison4}
+            weightingComparison5={weightingComparison5}
+            weightingComparison6={weightingComparison6}
+            weightingComparison7={weightingComparison7}
           />
         );
 

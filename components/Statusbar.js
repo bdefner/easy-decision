@@ -5,7 +5,6 @@ export default function Statusbar(props) {
 
   useEffect(() => {
     setStatusInPercentage((100 * props.screen) / props.numberOfScreens);
-    console.log('numberOfScreens in useEffect:', props.numberOfScreens);
   }, [props.screen]);
 
   const test = props.screen / props.numberOfScreens;

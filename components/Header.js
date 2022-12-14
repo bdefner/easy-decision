@@ -19,7 +19,6 @@ function Anchor({ children, ...restProps }) {
 }
 
 export default function Header(props) {
-  console.log('isQueryActive:', props);
   return (
     <div className="headerWrap">
       <Link href="/" id="logoWrap">
