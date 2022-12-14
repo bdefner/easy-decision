@@ -20,6 +20,8 @@ The app is in pre-alpha development. An alpha release is planned for the end of 
 
 ![](public/assets/screenshots/user-input-3-snip.jpg)
 
+![](public/assets/screenshots/results.jpg)
+
 ### Dev notes
 
 Reading on AHP: http://relaunch.rene-riedl.at/wp-content/uploads/2018/02/hmd_246.pdf

@@ -53,7 +53,10 @@ export default function ScreenResults(props: Props) {
         <div className="container flexColumnCenter">
           <h2 style={{ textAlign: 'center' }}>Results</h2>
           <h3>Weighting of qualities</h3>
-          <p>In terms of your question, this is how strongly </p>
+          <p>
+            In terms of your question, this is how strongly you weighted your
+            affected resources / qualities:{' '}
+          </p>
           <SemiCircleChart
             colors={['#26547c', '#ef476f', '#ffd166', '#06d6a0', '#06d6d1']}
             data={qualitiesChartData}
