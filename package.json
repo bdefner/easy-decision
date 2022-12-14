@@ -22,6 +22,8 @@
     "csrf": "^3.1.0",
     "dotenv-cli": "^6.0.0",
     "dotenv-safe": "^8.2.0",
+    "eazychart-css": "^0.2.1-alpha.0",
+    "eazychart-react": "^0.2.4-alpha.0",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
     "js-cookie": "^3.0.1",
