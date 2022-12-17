@@ -32,13 +32,61 @@ export default function ScreenResults(props: Props) {
   const weightingQualities = props.weightingQualities.map((item: string) => {
     return parseInt(item);
   });
+
   const weightingComparison1 = props.weightingComparison1.map(
     (item: string) => {
-      parseInt(item);
+      return parseInt(item);
     },
   );
 
-  const result = CalculateResults(weightingQualities, props.qualities.length);
+  const weightingComparison2 = props.weightingComparison2.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const weightingComparison3 = props.weightingComparison3.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const weightingComparison4 = props.weightingComparison4.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const weightingComparison5 = props.weightingComparison5.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const weightingComparison6 = props.weightingComparison6.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const weightingComparison7 = props.weightingComparison7.map(
+    (item: string) => {
+      return parseInt(item);
+    },
+  );
+
+  const result = CalculateResults(
+    weightingQualities,
+    props.qualities.length,
+    props.alternatives.length,
+    weightingComparison1,
+    weightingComparison2,
+    weightingComparison3,
+    weightingComparison4,
+    weightingComparison5,
+    weightingComparison6,
+    weightingComparison7,
+  );
 
   console.log('result: ', result);
 
