@@ -9,9 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState();
   const [activeScreen, setActiveScreen] = useState(1);
   const [isQueryActive, setIsQueryActive] = useState(false);
-  const numberOfScreens = 30;
-  const [numberOfAlternatives, setNumberOfAlternatives] = useState(2);
-  const [numberOfQualities, setNumberOfQualities] = useState(3);
+  const [numberOfScreens, setNumberOfScreens] = useState(0);
 
   const refreshUserProfile = useCallback(async () => {
     const profileResponse = await fetch('/api/profile');
@@ -69,6 +67,7 @@ export default function App({ Component, pageProps }: AppProps) {
             screen={activeScreen}
             setScreen={setActiveScreen}
             numberOfScreens={numberOfScreens}
+            setNumberOfScreens={setNumberOfScreens}
             isQueryActive={isQueryActive}
             setIsQueryActive={setIsQueryActive}
           />

@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
+import { createContext, useContext } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 

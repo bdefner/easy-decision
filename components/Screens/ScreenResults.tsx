@@ -1,9 +1,15 @@
 import 'eazychart-css';
-import { PieChart, RadialChart, SemiCircleChart } from 'eazychart-react';
+import {
+  ColumnChart,
+  PieChart,
+  RadialChart,
+  SemiCircleChart,
+} from 'eazychart-react';
 import { useState } from 'react';
 import { colors, spacing } from '../../styles/styleConstants';
 import CalculateResults from '../../utils/calculateResults';
 import CompareSlider from '../CompareSlider';
+import InfoButton from '../InfoButton';
 import QueryNavigation from '../QueryNavigation';
 
 // library for charts:
@@ -17,9 +23,9 @@ function createChartDataObject(data, labels) {
   data.map((item, index) => {
     chartData[index] = {
       id: `${index}`,
-      name: `${labels[index]}`,
+      name: ` ${labels[index]}  ( ${Math.round(100 * data[index])}% )`,
       v: 1,
-      value: data[index] * 100,
+      value: (data[index] * 100).toFixed(2),
     };
   });
 
@@ -95,42 +101,86 @@ export default function ScreenResults(props: Props) {
     props.qualities,
   );
 
+  const comparisonsChartData = createChartDataObject(
+    result.comparisonsWeighting,
+    props.alternatives,
+  );
+
   return (
     <>
       <section className="mainSection">
         <div className="container flexColumnCenter">
-          <h2 style={{ textAlign: 'center' }}>Results</h2>
+          <h2 style={{ textAlign: 'center', fontSize: 100 }}>Results</h2>
+
+          <span
+            style={{
+              textAlign: 'center',
+              color: colors.sand1,
+              fontSize: 32,
+              marginBottom: spacing.medium1,
+            }}
+          >
+            {props.question}
+          </span>
+          <p>
+            According to your answers, this is how strongly you tend to the
+            alternatives:{' '}
+          </p>
+          <div className="chartWrap">
+            <PieChart
+              colors={['#26547c', '#ef476f', '#ffd166', '#06d6a0', '#06d6d1']}
+              data={comparisonsChartData}
+              domainKey="value"
+              padding={{
+                bottom: 100,
+                left: 150,
+                right: 150,
+                top: 100,
+              }}
+            />
+          </div>
+          <br />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: spacing.small2,
+            }}
+          >
+            <InfoButton label="pro tipp" symbol="!" />
+            <p style={{ alignSelf: 'flex-start' }}>
+              {' '}
+              You can click on the labels to hide/show elements. 🖕🏻 This way,
+              you can compare individual options against each other.
+            </p>
+          </div>
+          <br />
+          <br />
           <h3>Weighting of qualities</h3>
           <p>
             In terms of your question, this is how strongly you weighted your
             affected resources / qualities:{' '}
           </p>
-          <SemiCircleChart
-            colors={['#26547c', '#ef476f', '#ffd166', '#06d6a0', '#06d6d1']}
-            data={qualitiesChartData}
-            domainKey="value"
-            padding={{
-              bottom: 100,
-              left: 150,
-              right: 150,
-              top: 100,
-            }}
-          />
+          <div>
+            <PieChart
+              colors={['#26547c', '#ef476f', '#ffd166', '#06d6a0', '#06d6d1']}
+              data={qualitiesChartData}
+              domainKey="value"
+              padding={{
+                bottom: 100,
+                left: 150,
+                right: 150,
+                top: 100,
+              }}
+            />
+          </div>
 
-          {/* <PieChart
-            colors={['red', 'blue', 'green']}
-            valueDomainKey={'value'}
-            labelDomainKey={'label'}
-            data={[
-              { label: 'Alpha', value: 10 },
-              { label: 'Beta', value: 20 },
-              { label: 'Gamma', value: 30 },
-            ]}
-          /> */}
           <QueryNavigation
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={false}
           />
         </div>
       </section>

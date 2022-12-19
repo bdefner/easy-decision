@@ -175,6 +175,7 @@ export default function Screen10(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={true}
           />
         </div>
       </section>

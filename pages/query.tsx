@@ -23,8 +23,13 @@ export default function Query(props: Props) {
     '',
     '',
   ]);
-  const [qualities, setQualities] = useState(['', '', '']);
-  const [alternatives, setAlternatives] = useState(['', '']);
+  const [qualitiesInputFields, setQualitiesInputFields] = useState([
+    '',
+    '',
+    '',
+  ]);
+  const [qualities, setQualities] = useState([]);
+  const [alternatives, setAlternatives] = useState([]);
   const [weightingQualities, setWeightingQualities] = useState([
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ]);
@@ -88,9 +93,14 @@ export default function Query(props: Props) {
             setScreen={props.setScreen}
             qualities={qualities}
             setQualities={setQualities}
+            qualitiesInputFields={qualitiesInputFields}
+            setQualitiesInputFields={setQualitiesInputFields}
           />
         );
       case 5:
+        console.log('qualities.length: ', qualities.length);
+        props.setNumberOfScreens(5 + qualities.length * alternatives.length);
+        props.setIsQueryActive(true);
         return <Screen5 screen={props.screen} setScreen={props.setScreen} />;
       case 6:
         return <Screen6 screen={props.screen} setScreen={props.setScreen} />;
@@ -194,46 +204,49 @@ export default function Query(props: Props) {
           <ScreenResults
             screen={props.screen}
             setScreen={props.setScreen}
+            question={question}
             qualities={qualities}
             alternatives={alternatives}
-            // weightingQualities={weightingQualities}
-            // weightingComparison1={weightingComparison1}
-            // weightingComparison2={weightingComparison2}
-            // weightingComparison3={weightingComparison3}
-            // weightingComparison4={weightingComparison4}
-            // weightingComparison5={weightingComparison5}
-            // weightingComparison6={weightingComparison6}
-            // weightingComparison7={weightingComparison7}
+            weightingQualities={weightingQualities}
+            weightingComparison1={weightingComparison1}
+            weightingComparison2={weightingComparison2}
+            weightingComparison3={weightingComparison3}
+            weightingComparison4={weightingComparison4}
+            weightingComparison5={weightingComparison5}
+            weightingComparison6={weightingComparison6}
+            weightingComparison7={weightingComparison7}
 
-            weightingQualities={[
-              4, -2, 7, 7, 4, 2, 7, 2, 4, 4, 1, 4, 4, 4, 1, 1, 1, -4, 1, 1, 1,
-            ]}
-            weightingComparison1={[
-              1, 1, 5, 6, 1, 1, 4, 4, 3, 1, 1, 5, 4, 1, -2, -1, -4, -4, -2, -4,
-              1,
-            ]}
-            weightingComparison2={[
-              1, -2, -9, -9, 5, -8, -5, -9, -9, 1, 5, -9, -9, 4, 4, 1, 9, 9, 9,
-              9, 1,
-            ]}
-            weightingComparison3={[
-              1, 9, 1, 1, 3, 5, 7, 3, 3, 9, 9, -7, -3, 1, 2, 1, 8, 8, 8, 8, -1,
-            ]}
-            weightingComparison4={[
-              3, -6, -9, -6, 1, -4, -6, -8, -5, 1, -5, -5, 1, 4, 1, 5, 5, 3, 1,
-              -1, -3,
-            ]}
-            weightingComparison5={[
-              5, -7, -7, -6, -4, -3, -6, -7, -5, -4, -4, -6, -3, -2, -2, 3, 3,
-              1, 1, 1,
-            ]}
-            weightingComparison6={[
-              2, 1, -5, 3, -3, -5, 1, -4, -4, -5, 1, -1, 1, 5, 3, 1, -2, -2, -1,
-            ]}
-            weightingComparison7={[
-              5, 14, 20, 9, 7, 9, 13, 17, 4, -3, 9, 17, 2, -4, 7, -2, -9, -11,
-              -12, -2, 1,
-            ]}
+            // Dummy data to test and confirm results:
+
+            // weightingQualities={[
+            //   4, -2, 7, 7, 4, 2, 7, 2, 4, 4, 1, 4, 4, 4, 1, 1, 1, -4, 1, 1, 1,
+            // ]}
+            // weightingComparison1={[
+            //   1, 1, 5, 6, 1, 1, 4, 4, 3, 1, 1, 5, 4, 1, -2, -1, -4, -4, -2, -4,
+            //   1,
+            // ]}
+            // weightingComparison2={[
+            //   1, -2, -9, -9, 5, -8, -5, -9, -9, 1, 5, -9, -9, 4, 4, 1, 9, 9, 9,
+            //   9, 1,
+            // ]}
+            // weightingComparison3={[
+            //   1, 9, 1, 1, 3, 5, 7, 3, 3, 9, 9, -7, -3, 1, 2, 1, 8, 8, 8, 8, -1,
+            // ]}
+            // weightingComparison4={[
+            //   3, -6, -9, -6, 1, -4, -6, -8, -5, 1, -5, -5, 1, 4, 1, 5, 5, 3, 1,
+            //   -1, -3,
+            // ]}
+            // weightingComparison5={[
+            //   5, -7, -7, -6, -4, -3, -6, -7, -5, -4, -4, -6, -3, -2, -2, 3, 3,
+            //   1, 1, 1,
+            // ]}
+            // weightingComparison6={[
+            //   2, 1, -5, 3, -3, -5, 1, -4, -4, -5, 1, -1, 1, 5, 3, 1, -2, -2, -1,
+            // ]}
+            // weightingComparison7={[
+            //   5, 14, 20, 9, 7, 9, 13, 17, 4, -3, 9, 17, 2, -4, 7, -2, -9, -11,
+            //   -12, -2, 1,
+            // ]}
           />
         );
 
@@ -253,7 +266,6 @@ export default function Query(props: Props) {
     }
   }
 
-  props.setIsQueryActive(true);
   return (
     <>
       <Head>

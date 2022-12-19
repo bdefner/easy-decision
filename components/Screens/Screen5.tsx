@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { colors, spacing } from '../../styles/styleConstants';
 import InfoButton from '../InfoButton';
+import QueryContextProvider from '../QueryContextProvider';
 import QueryNavigation from '../QueryNavigation';
 
 export default function Screen5(props: Props) {
-  const [inputArray, setInputArray] = useState(['', '', '']);
-
   return (
     <>
       <section className="mainSection">
@@ -15,9 +14,9 @@ export default function Screen5(props: Props) {
           <h2>Time to start comparing</h2>
           <p style={{ textAlign: 'center' }}>
             In the following you will be asked to compare ech element of your
-            question against each other. For example: “What is more important to
-            you “Time for hobbies” or “Increased income”. <br /> You can answer
-            the question by pulling a slider:
+            question against each other. <br /> For example: “What is more
+            important to you “Time for hobbies” or “Increased income”. <br />{' '}
+            You can answer the question by pulling a slider:
           </p>
 
           <div
@@ -41,6 +40,7 @@ export default function Screen5(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={true}
           />
         </div>
       </section>

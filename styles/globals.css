@@ -95,6 +95,10 @@ a {
   font-size: var(--text-smaller);
 }
 
+.disabledButton {
+  opacity: 0.5;
+}
+
 .button1 {
   background-color: var(--blue1);
 }
@@ -321,6 +325,14 @@ a {
   resize: none;
 }
 
+.smallTextInputWrap {
+  display: flex;
+  align-items: center;
+}
+
+.disabledInputWrap {
+  opacity: 0.5;
+}
 .smallTextInput {
   width: 200px;
   background-color: var(--lightGrey);
@@ -405,4 +417,10 @@ a {
   background: var(--blue1);
   border-radius: 12px;
   cursor: pointer; /* Cursor on hover */
+}
+
+/* Results */
+
+.chartWrap {
+  max-width: 800px;
 }

@@ -5,6 +5,7 @@ function handleClickOnNext(dataForFetch, screen, setScreen) {
 }
 
 export default function QueryNavigation(props) {
+  console.log('props.nextButtonDisabled: ', props.nextButtonDisabled);
   const dataForFetch = {
     question: props.question,
   };
@@ -22,14 +23,23 @@ export default function QueryNavigation(props) {
             {'< back'}
           </div>
         )}
-        <div
-          className="mainButton button1"
-          onClick={() => {
-            handleClickOnNext(dataForFetch, props.screen, props.setScreen);
-          }}
-        >
-          {'next >'}
-        </div>
+        {props.nextButton && (
+          <div className={props.nextButtonDisabled ? 'disabledButton' : ''}>
+            <div
+              className="mainButton button1"
+              onClick={() => {
+                !props.nextButtonDisabled &&
+                  handleClickOnNext(
+                    dataForFetch,
+                    props.screen,
+                    props.setScreen,
+                  );
+              }}
+            >
+              {'next >'}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

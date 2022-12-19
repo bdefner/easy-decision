@@ -1,86 +1,86 @@
 import { Matrix } from 'ml-matrix';
 
-function CreateWeightingVector(array, length) {
-  // Return array, depending on length
-  const vector = [];
-  switch (length) {
-    case 3:
-      vector[0] = array[0]; // C1
-      vector[1] = array[1]; // C2
-      vector[2] = array[6]; // C7
-      break;
+// function CreateWeightingVector(array, length) {
+//   // Return array, depending on length
+//   const vector = [];
+//   switch (length) {
+//     case 3:
+//       vector[0] = array[0]; // C1
+//       vector[1] = array[1]; // C2
+//       vector[2] = array[6]; // C7
+//       break;
 
-    case 4:
-      vector[0] = array[0]; // C1
-      vector[1] = array[1]; // C2
-      vector[2] = array[6]; // C7
-      vector[3] = array[2]; // C3
-      vector[4] = array[7]; // C8
-      vector[5] = array[11]; // C12
-      break;
+//     case 4:
+//       vector[0] = array[0]; // C1
+//       vector[1] = array[1]; // C2
+//       vector[2] = array[6]; // C7
+//       vector[3] = array[2]; // C3
+//       vector[4] = array[7]; // C8
+//       vector[5] = array[11]; // C12
+//       break;
 
-    case 5:
-      vector[0] = array[0]; // C1
-      vector[1] = array[1]; // C2
-      vector[2] = array[6]; // C7
-      vector[3] = array[2]; // C3
-      vector[4] = array[7]; // C8
-      vector[5] = array[11]; // C12
-      vector[6] = array[3]; // C4
-      vector[7] = array[8]; // C9
-      vector[8] = array[12]; // C13
-      vector[9] = array[15]; // C16
-      break;
+//     case 5:
+//       vector[0] = array[0]; // C1
+//       vector[1] = array[1]; // C2
+//       vector[2] = array[6]; // C7
+//       vector[3] = array[2]; // C3
+//       vector[4] = array[7]; // C8
+//       vector[5] = array[11]; // C12
+//       vector[6] = array[3]; // C4
+//       vector[7] = array[8]; // C9
+//       vector[8] = array[12]; // C13
+//       vector[9] = array[15]; // C16
+//       break;
 
-    case 6:
-      vector[0] = array[0]; // C1
-      vector[1] = array[1]; // C2
-      vector[2] = array[6]; // C7
-      vector[3] = array[2]; // C3
-      vector[4] = array[7]; // C8
-      vector[5] = array[11]; // C12
-      vector[6] = array[3]; // C4
-      vector[7] = array[8]; // C9
-      vector[8] = array[12]; // C13
-      vector[9] = array[15]; // C16
-      vector[10] = array[4]; // C5
-      vector[11] = array[9]; // C10
-      vector[12] = array[13]; // C14
-      vector[13] = array[16]; // C17
-      vector[14] = array[18]; // C19
-      break;
+//     case 6:
+//       vector[0] = array[0]; // C1
+//       vector[1] = array[1]; // C2
+//       vector[2] = array[6]; // C7
+//       vector[3] = array[2]; // C3
+//       vector[4] = array[7]; // C8
+//       vector[5] = array[11]; // C12
+//       vector[6] = array[3]; // C4
+//       vector[7] = array[8]; // C9
+//       vector[8] = array[12]; // C13
+//       vector[9] = array[15]; // C16
+//       vector[10] = array[4]; // C5
+//       vector[11] = array[9]; // C10
+//       vector[12] = array[13]; // C14
+//       vector[13] = array[16]; // C17
+//       vector[14] = array[18]; // C19
+//       break;
 
-    case 7:
-      vector[0] = array[0]; // C1
-      vector[1] = array[1]; // C2
-      vector[2] = array[6]; // C7
-      vector[3] = array[2]; // C3
-      vector[4] = array[7]; // C8
-      vector[5] = array[11]; // C12
-      vector[6] = array[3]; // C4
-      vector[7] = array[8]; // C9
-      vector[8] = array[12]; // C13
-      vector[9] = array[15]; // C16
-      vector[10] = array[4]; // C5
-      vector[11] = array[9]; // C10
-      vector[12] = array[13]; // C14
-      vector[13] = array[16]; // C17
-      vector[14] = array[18]; // C19
-      vector[15] = array[5]; // C6
-      vector[16] = array[10]; // C11
-      vector[17] = array[14]; // C15
-      vector[18] = array[17]; // C18
-      vector[19] = array[19]; // C20
-      vector[20] = array[20]; // C21
-      break;
+//     case 7:
+//       vector[0] = array[0]; // C1
+//       vector[1] = array[1]; // C2
+//       vector[2] = array[6]; // C7
+//       vector[3] = array[2]; // C3
+//       vector[4] = array[7]; // C8
+//       vector[5] = array[11]; // C12
+//       vector[6] = array[3]; // C4
+//       vector[7] = array[8]; // C9
+//       vector[8] = array[12]; // C13
+//       vector[9] = array[15]; // C16
+//       vector[10] = array[4]; // C5
+//       vector[11] = array[9]; // C10
+//       vector[12] = array[13]; // C14
+//       vector[13] = array[16]; // C17
+//       vector[14] = array[18]; // C19
+//       vector[15] = array[5]; // C6
+//       vector[16] = array[10]; // C11
+//       vector[17] = array[14]; // C15
+//       vector[18] = array[17]; // C18
+//       vector[19] = array[19]; // C20
+//       vector[20] = array[20]; // C21
+//       break;
 
-    default:
-      0;
-      break;
-  }
+//     default:
+//       0;
+//       break;
+//   }
 
-  return vector;
-}
+//   return vector;
+// }
 
 function createVectorOfZeros(length) {
   const vector = [];
@@ -142,6 +142,14 @@ export function ArrayToMatrix(array, length) {
   let matrixA;
 
   switch (length) {
+    case 2:
+      matrixA = new Matrix([
+        [1, rightSwitch(array[0])],
+        [leftSwitch(array[1]), 1],
+      ]);
+
+      break;
+
     case 3:
       matrixA = new Matrix([
         [1, rightSwitch(array[0]), rightSwitch(array[1])],
@@ -429,15 +437,6 @@ export default function CalculateResults(
 ) {
   const qualitiesMatrix = ArrayToMatrix(qualitiesWeighting, qualitiesLength);
 
-  console.log('alternativesLength: ', alternativesLength);
-  console.log('weightingComparison1: ', weightingComparison1);
-  console.log('weightingComparison2: ', weightingComparison2);
-  console.log('weightingComparison3: ', weightingComparison3);
-  console.log('weightingComparison4: ', weightingComparison4);
-  console.log('weightingComparison5: ', weightingComparison5);
-  console.log('weightingComparison6: ', weightingComparison6);
-  console.log('weightingComparison7: ', weightingComparison7);
-
   const comparison1Matrix =
     weightingComparison1 &&
     ArrayToMatrix(weightingComparison1, alternativesLength);
@@ -537,59 +536,7 @@ export default function CalculateResults(
       return item * eigenvectorOfQualitiesMatrix[0];
     });
 
-  // const MultiplicationOfC2AndQW = eigenvectorOfComparison2.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
-  // const MultiplicationOfC3AndQW = eigenvectorOfComparison3.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
-  // const MultiplicationOfC4AndQW = eigenvectorOfComparison4.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
-  // const MultiplicationOfC5AndQW = eigenvectorOfComparison5.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
-  // const MultiplicationOfC6AndQW = eigenvectorOfComparison6.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
-  // const MultiplicationOfC7AndQW = eigenvectorOfComparison7.map(
-  //   (item, index) => {
-  //     return item * eigenvectorOfQualitiesMatrix[0];
-  //   },
-  // );
-
   const results = {};
-
-  console.log('comparison1Matrix: ', comparison1Matrix);
-  console.log('comparison2Matrix: ', comparison2Matrix);
-  console.log('comparison3Matrix: ', comparison3Matrix);
-  console.log('comparison4Matrix: ', comparison4Matrix);
-  console.log('comparison5Matrix: ', comparison5Matrix);
-  console.log('comparison6Matrix: ', comparison6Matrix);
-  console.log('comparison7Matrix: ', comparison7Matrix);
-  console.log('eigenvectorOfQualitiesMatrix: ', eigenvectorOfQualitiesMatrix);
-  console.log('eigenvectorOfComparison1: ', eigenvectorOfComparison1);
-  console.log('eigenvectorOfComparison2: ', eigenvectorOfComparison2);
-  console.log('eigenvectorOfComparison3: ', eigenvectorOfComparison3);
-  console.log('eigenvectorOfComparison4: ', eigenvectorOfComparison4);
-  console.log('eigenvectorOfComparison5: ', eigenvectorOfComparison5);
-  console.log('eigenvectorOfComparison6: ', eigenvectorOfComparison6);
-  console.log('eigenvectorOfComparison7: ', eigenvectorOfComparison7);
 
   // MultiplyVectorByValue
 
@@ -610,49 +557,42 @@ export default function CalculateResults(
     for (let i = 0; i < eigenvectorOfComparison1.length; i++) {
       C1Q1[i] = eigenvectorOfComparison1[i] * eigenvectorOfQualitiesMatrix[0];
     }
-    console.log('C1QW1:', C1Q1);
   }
 
   if (eigenvectorOfComparison2[0] && eigenvectorOfQualitiesMatrix[1]) {
     for (let i = 0; i < eigenvectorOfComparison2.length; i++) {
       C2Q2[i] = eigenvectorOfComparison2[i] * eigenvectorOfQualitiesMatrix[1];
     }
-    console.log('C2QW2:', C2Q2);
   }
 
   if (eigenvectorOfComparison3[0] && eigenvectorOfQualitiesMatrix[2]) {
     for (let i = 0; i < eigenvectorOfComparison3.length; i++) {
       C3Q3[i] = eigenvectorOfComparison3[i] * eigenvectorOfQualitiesMatrix[2];
     }
-    console.log('C3QW3:', C3Q3);
   }
 
   if (eigenvectorOfComparison4[0] && eigenvectorOfQualitiesMatrix[3]) {
     for (let i = 0; i < eigenvectorOfComparison4.length; i++) {
       C4Q4[i] = eigenvectorOfComparison4[i] * eigenvectorOfQualitiesMatrix[3];
     }
-    console.log('C4QW4:', C4Q4);
   }
 
   if (eigenvectorOfComparison5[0] && eigenvectorOfQualitiesMatrix[4]) {
     for (let i = 0; i < eigenvectorOfComparison5.length; i++) {
       C5Q5[i] = eigenvectorOfComparison5[i] * eigenvectorOfQualitiesMatrix[4];
     }
-    console.log('C5QW5:', C5Q5);
   }
 
   if (eigenvectorOfComparison6[0] && eigenvectorOfQualitiesMatrix[5]) {
     for (let i = 0; i < eigenvectorOfComparison6.length; i++) {
       C6Q6[i] = eigenvectorOfComparison6[i] * eigenvectorOfQualitiesMatrix[5];
     }
-    console.log('C6QW6:', C6Q6);
   }
 
   if (eigenvectorOfComparison7[0] && eigenvectorOfQualitiesMatrix[6]) {
     for (let i = 0; i < eigenvectorOfComparison7.length; i++) {
       C7Q7[i] = eigenvectorOfComparison7[i] * eigenvectorOfQualitiesMatrix[6];
     }
-    console.log('C7QW7:', C7Q7);
   }
 
   results.comparisonsWeighting = generateComparisonsWeighting(
@@ -667,7 +607,6 @@ export default function CalculateResults(
     qualitiesLength,
   );
 
-  console.log('results.comparisonsWeighting: ', results.comparisonsWeighting);
   results.qualitiesWeighting = eigenvectorOfQualitiesMatrix;
 
   return results;

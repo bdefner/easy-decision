@@ -11,8 +11,7 @@ export default function Screen14(props: Props) {
       <section className="mainSection">
         <div className="container flexColumnCenter">
           <h2 style={{ textAlign: 'center' }}>
-            What has a stronger, positive influence in terms of{' '}
-            <br />
+            What has a stronger, positive influence in terms of <br />
             <span
               style={{
                 color: colors.sand1,
@@ -178,6 +177,7 @@ export default function Screen14(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={true}
           />
         </div>
       </section>

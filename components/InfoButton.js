@@ -14,6 +14,8 @@ export default function InfoButton(props) {
           paddingRight: 5,
           marginBottom: 5,
           cursor: 'pointer',
+
+          flexShrink: 0,
         }}
       >
         <div

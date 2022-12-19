@@ -28,6 +28,8 @@ export default function Screen2(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={false}
+            nextButton={true}
+            nextButtonDisabled={props.question.length < 10 ? true : false}
           />
         </div>
         <div className="bottomInfoWrap">

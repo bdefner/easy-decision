@@ -5,13 +5,11 @@ import InfoButton from '../InfoButton';
 import QueryNavigation from '../QueryNavigation';
 
 export default function Screen4(props: Props) {
-  const [inputArray, setInputArray] = useState(['', '', '']);
-
   const setQualitiesHelper = props.qualities;
 
   function addInputField() {
-    if (props.qualities.length < 7) {
-      props.setQualities([...props.qualities, '']);
+    if (props.qualitiesInputFields.length < 7) {
+      props.setQualitiesInputFields([...props.qualitiesInputFields, '']);
     }
   }
 
@@ -30,18 +28,33 @@ export default function Screen4(props: Props) {
             Which qualities and / or resources in your life might be affected by
             your decision?
           </p>
+          <p style={{ textAlign: 'center' }}>
+            You need to set at least three alternatives to get a result.
+            <br />
+            However, the more you set, the more solid your result will be.
+          </p>
           <div className="bigInputWrap">
             <div id="helpButtonWrap">
               <InfoButton label="help" symbol="?" />
             </div>
           </div>
 
-          {props.qualities.map((element, index) => {
+          {props.qualitiesInputFields.map((element, index) => {
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className={
+                  index > 0 && !props.qualities[index - 1]
+                    ? 'disabledInputWrap'
+                    : ''
+                }
+              >
                 <input
                   className="smallTextInput"
                   value={setQualitiesHelper[index]}
+                  disabled={
+                    index > 0 && !props.qualities[index - 1] ? true : false
+                  }
                   onChange={(event) => {
                     handleInputChange(index, event);
                   }}
@@ -66,6 +79,8 @@ export default function Screen4(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={true}
+            nextButtonDisabled={props.qualities.length > 2 ? false : true}
           />
         </div>
       </section>

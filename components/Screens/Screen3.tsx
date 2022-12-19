@@ -23,6 +23,12 @@ export default function Screen3(props: Props) {
         <div className="container flexColumnCenter">
           <h2>Define up to 5 alternatives</h2>
           <p>Which decision goals compete against each other?</p>
+          <p style={{ textAlign: 'center' }}>
+            You need to set al least three alternatives to make the magic of
+            this app work. <br />
+            If you only have two options, a good old pro and contra list might
+            just do the job.
+          </p>
           <div className="bigInputWrap">
             <div id="helpButtonWrap">
               <InfoButton label="help" symbol="?" />
@@ -32,13 +38,24 @@ export default function Screen3(props: Props) {
           {props.alternativesInputFields.map((element: any, index: number) => {
             return (
               <div key={index}>
-                <input
-                  className="smallTextInput"
-                  value={props.alternatives[index]}
-                  onChange={(event) => {
-                    handleInputChange(index, event);
-                  }}
-                />
+                <div
+                  className={
+                    index > 0 && !props.alternatives[index - 1]
+                      ? 'disabledInputWrap'
+                      : ''
+                  }
+                >
+                  <input
+                    className={`smallTextInput`}
+                    value={props.alternatives[index]}
+                    disabled={
+                      index > 0 && !props.alternatives[index - 1] ? true : false
+                    }
+                    onChange={(event) => {
+                      handleInputChange(index, event);
+                    }}
+                  />
+                </div>
               </div>
             );
           })}
@@ -59,6 +76,8 @@ export default function Screen3(props: Props) {
             screen={props.screen}
             setScreen={props.setScreen}
             backButton={true}
+            nextButton={true}
+            nextButtonDisabled={props.alternatives.length > 1 ? false : true}
           />
         </div>
       </section>
