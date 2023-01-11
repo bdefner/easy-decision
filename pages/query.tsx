@@ -29,6 +29,15 @@ export default function Query(props: Props) {
     '',
   ]);
   const [qualities, setQualities] = useState([]);
+  const [qualitiesDirectionArray, setQualitiesDirectionArray] = useState([
+    `more`,
+    `more`,
+    `more`,
+    `more`,
+    `more`,
+    `more`,
+    `more`,
+  ]);
   const [alternatives, setAlternatives] = useState([]);
   const [weightingQualities, setWeightingQualities] = useState([
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -93,12 +102,13 @@ export default function Query(props: Props) {
             setScreen={props.setScreen}
             qualities={qualities}
             setQualities={setQualities}
+            qualitiesDirectionArray={qualitiesDirectionArray}
+            setQualitiesDirectionArray={setQualitiesDirectionArray}
             qualitiesInputFields={qualitiesInputFields}
             setQualitiesInputFields={setQualitiesInputFields}
           />
         );
       case 5:
-        console.log('qualities.length: ', qualities.length);
         props.setNumberOfScreens(5 + qualities.length * alternatives.length);
         props.setIsQueryActive(true);
         return <Screen5 screen={props.screen} setScreen={props.setScreen} />;
@@ -112,6 +122,7 @@ export default function Query(props: Props) {
             qualities={qualities}
             weighting={weightingQualities}
             setWeighting={setWeightingQualities}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -124,6 +135,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison1}
             setWeighting={setWeightingComparison1}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -136,6 +148,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison2}
             setWeighting={setWeightingComparison2}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -148,6 +161,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison3}
             setWeighting={setWeightingComparison3}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -160,6 +174,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison4}
             setWeighting={setWeightingComparison4}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -172,6 +187,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison5}
             setWeighting={setWeightingComparison5}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -184,6 +200,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison6}
             setWeighting={setWeightingComparison6}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -196,6 +213,7 @@ export default function Query(props: Props) {
             alternatives={alternatives}
             weighting={weightingComparison7}
             setWeighting={setWeightingComparison7}
+            qualitiesDirectionArray={qualitiesDirectionArray}
           />
         );
 
@@ -215,6 +233,7 @@ export default function Query(props: Props) {
             weightingComparison5={weightingComparison5}
             weightingComparison6={weightingComparison6}
             weightingComparison7={weightingComparison7}
+            qualitiesDirectionArray={qualitiesDirectionArray}
 
             // Dummy data to test and confirm results:
 

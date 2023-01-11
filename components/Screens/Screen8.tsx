@@ -3,7 +3,6 @@ import CompareSlider from '../CompareSlider';
 import QueryNavigation from '../QueryNavigation';
 
 export default function Screen8(props: Props) {
-  console.log('props.weighting: ', props.weighting);
   return (
     <>
       <section className="mainSection">

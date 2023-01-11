@@ -37,7 +37,7 @@ export default function Screen3(props: Props) {
 
           {props.alternativesInputFields.map((element: any, index: number) => {
             return (
-              <div key={index}>
+              <div key={index} className="inputWrap">
                 <div
                   className={
                     index > 0 && !props.alternatives[index - 1]

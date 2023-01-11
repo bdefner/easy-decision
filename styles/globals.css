@@ -148,6 +148,13 @@ a {
   align-items: center;
 }
 
+.greyBorder {
+  border: solid;
+  border-width: 1px;
+  border-color: var(--lightGrey);
+  margin: var(--medium1);
+}
+
 .mainSection {
   margin: var(--large);
   display: flex;
@@ -339,9 +346,42 @@ a {
   border-radius: 12px;
   border: 0;
   padding: var(--small1);
-  margin: var(--small1) 0 var(--small2) 0;
+
   color: black;
   text-align: center;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--small1) 0 var(--small2) 0;
+}
+
+.switchWrap {
+  display: flex;
+  align-content: center;
+  border-radius: 12px;
+  background-color: var(--lightGrey);
+  overflow: hidden;
+  margin-right: var(--small2);
+  cursor: pointer;
+}
+
+.switchWrap > div {
+  padding: var(--small1);
+  font-size: 13px;
+  color: grey;
+  transition: all 0.3s ease;
+}
+
+.switchWrap > .activeSwitch {
+  background-color: var(--blue1);
+  color: white;
+}
+
+.notClickable {
+  pointer-events: none;
 }
 
 .queryNavWrap {

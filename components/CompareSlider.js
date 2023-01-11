@@ -1,3 +1,5 @@
+import { colors, spacing } from '../styles/styleConstants';
+
 export default function CompareSlider(props) {
   function handleInputChange(index, event) {
     const newInput = [...props.weighting];
@@ -8,7 +10,20 @@ export default function CompareSlider(props) {
   return (
     <div className={(!props.a || !props.b) && 'hidden'}>
       <div className="sliderComparisonWrap">
-        <p style={{ textAlign: 'right' }}>{props.a}</p>
+        <div>
+          {props.aDirection && (
+            <p
+              style={{
+                textAlign: 'right',
+                fontSize: 15,
+                color: colors.sand1,
+              }}
+            >
+              {props.aDirection}
+            </p>
+          )}
+          <p style={{ textAlign: 'right' }}>{props.a}</p>
+        </div>
         <input
           type={'range'}
           min="-10"
@@ -19,7 +34,19 @@ export default function CompareSlider(props) {
             handleInputChange(props.index, event);
           }}
         />
-        <p>{props.b}</p>
+        <div>
+          {props.bDirection && (
+            <p
+              style={{
+                fontSize: 15,
+                color: colors.sand1,
+              }}
+            >
+              {props.bDirection}
+            </p>
+          )}
+          <p>{props.b}</p>
+        </div>
       </div>
     </div>
   );
